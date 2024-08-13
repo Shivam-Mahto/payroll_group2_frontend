@@ -1,3 +1,41 @@
-p {
-    font-weight: bold;
+/* Navbar Background Color */
+.navbar {
+  background-color: #00bfae; /* Replace with UKG green color code */
 }
+
+/* Navbar Brand (UKG) */
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+ 
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: white; 
+  margin-left: 30px;
+  font-weight: bold;/* Ensure text color is white */
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+  background-image: none;
+}
+
+/* Icon Circle Styles */
+.nav-link.icon-circle {
+  background-color: transparent; /* Remove background color */
+  color: white; /* Icon color */
+  padding: 0; /* Remove padding to eliminate circle effect */
+  font-size: 28px; /* Adjust size as needed */
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0; /* Ensure no border radius */
+}
+
+.nav-link.icon-circle:hover {
+  background-color: transparent; /* Keep background transparent on hover */
+}
+
