@@ -1,25 +1,24 @@
 <div class="navbar navbar-expand-lg navbar-light w-100">
-  <h2 class="text-white">UKG</h2>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <h2 class="text-white">PayWise</h2>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
     <ul class="navbar-nav ml-auto">
+
+
       <li class="nav-item">
-        <a class="nav-link icon-circle" href="#" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a class="nav-link icon-circle" [routerLink]="['info']" aria-label="Help"><i class="fas fa-question-circle"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link icon-circle" href="#" aria-label="Notifications"><i class="fas fa-bell"></i></a>
+        <a class="nav-link icon-circle" [routerLink]="['profile']" aria-label="Profile"><i class="fas fa-user"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link icon-circle" href="#" aria-label="Help"><i class="fas fa-question-circle"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link icon-circle" [routerLink] = "['profile']" aria-label="Profile"><i class="fas fa-user"></i></a>
+        <a class="nav-link icon-circle" [routerLink]="['/login']" aria-label="logout"><i class="fa fa-sign-out"></i></a>
       </li>
     </ul>
   </div>
 </div>
-
