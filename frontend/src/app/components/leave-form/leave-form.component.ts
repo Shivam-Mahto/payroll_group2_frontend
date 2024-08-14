@@ -2,28 +2,76 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-leave-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './leave-form.component.html',
   styleUrl: './leave-form.component.css'
 })
 export class LeaveFormComponent {
 
-  constructor(private _location: Location) { }
+  leavesData = 
+    {
+      leavesTaken : 123,
+      leavesLeft : 23,
+      pendingRequests : 1
+    }
 
-  navigateBack() {
-    this._location.back();
+  leavesList = [
+    {
+      name: "Shivam",
+      startDate: "01/02/2024",
+      endDate: "02/02/2024",
+      employeeId: 1,
+      type: 'sick',
+      status: "pending"
+    },
+    {
+      name: "Shivam",
+      startDate: "03/02/2024",
+      endDate: "02/02/2024",
+      employeeId: 2,
+      type: 'sick',
+      status: "pending"
+    },
+    {
+      name: "Shivam",
+      startDate: "02/02/2024",
+      endDate: "02/02/2024",
+      employeeId: 3,
+      type: 'sick',
+      status: "pending"
+    }
+  ]
+
+
+  selectedMonth: string = 'All'; // Default to 'All'
+  filteredLeaves: any[] = this.leavesList;
+
+  months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  onMonthChange(month: string) {
+    console.log(month);
+    this.selectedMonth = month;
+    this.filterLeaves();
   }
 
-  leaveApplication = new FormGroup({
-    name: new FormControl('Shivam'),
-    email: new FormControl('shivam@gmail.com'),
-    employeeId: new FormControl('123'),
-    startDate: new FormControl(''),
-    endDate: new FormControl(''),
-    reason: new FormControl('')
-  })
+  //TODO Filter uses mmddyyyy and not ddmmyyyy
+  filterLeaves() {
+    if (this.selectedMonth === 'All') {
+      this.filteredLeaves = this.leavesList;
+    } else {
+      const monthIndex = this.months.indexOf(this.selectedMonth) + 1;
+      this.filteredLeaves = this.leavesList.filter(leave => {
+        const leaveMonth = new Date(leave.startDate).getMonth() + 1; // +1 because months are 0-based
+        return leaveMonth === monthIndex;
+      });
+    }
+  }
 }

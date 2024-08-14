@@ -7,6 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { InfoComponent } from './components/info/info.component';
 import { WhyukgComponent } from './components/whyukg/whyukg.component';
+import { LeaveRequestsComponent } from './components/admin-dashboard-components/leave-requests/leave-requests.component';
 import { LeaveComponent } from './components/leave/leave.component';
 import { EmployeeListComponent } from './components/admin-dashboard-components/employee-list/employee-list.component';
 import { NewEmployeeComponent } from './components/admin-dashboard-components/new-employee/new-employee.component';
@@ -25,7 +26,7 @@ export const routes: Routes = [
     },
     {
         path: 'admin/dashboard', component: AdminDashboardComponent, children: [{
-            path: 'leaves', component: LeaveComponent
+            path: 'leaves', component: LeaveFormComponent
         }, {
             path: 'leaves/leave-request', component: LeaveFormComponent
         }, {
@@ -34,9 +35,7 @@ export const routes: Routes = [
             path: 'profile', component: ProfileComponent
         }, {
             path: 'employee-list', component: EmployeeListComponent
-        }, {
-            path: 'leave-request', component: ProfileComponent
-        },
+        }, 
         {
             path: 'info', component: InfoComponent
         },
@@ -47,8 +46,13 @@ export const routes: Routes = [
 
 
         {
-            path: 'employee-list/add-employee', component: NewEmployeeComponent
+
+            path: 'leave-request', component: LeaveRequestsComponent
         },
+      
+    {
+            path: 'employee-list/add-employee', component: NewEmployeeComponent
+        }
         ]
     },
 ];
