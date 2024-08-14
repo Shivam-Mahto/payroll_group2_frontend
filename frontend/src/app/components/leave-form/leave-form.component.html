@@ -37,19 +37,19 @@
         <div class="row mb-4">
             <div class="col-md-4">
                 <div class="card text-center p-3 bg-light">
-                    <h2 class="h5 mb-0">12</h2>
+                    <h2 class="h5 mb-0"> {{leavesData.leavesTaken}} </h2>
                     <p class="text-muted mb-0">Leaves Taken</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card text-center p-3 bg-light">
-                    <h2 class="h5 mb-0">23</h2>
+                    <h2 class="h5 mb-0"> {{leavesData.leavesLeft}} </h2>
                     <p class="text-muted mb-0">Leaves Left</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card text-center p-3 bg-light">
-                    <h2 class="h5 mb-0">1</h2>
+                    <h2 class="h5 mb-0"> {{leavesData.pendingRequests}} </h2>
                     <p class="text-muted mb-0">Pending Requests</p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
         <div class="rounded">
             <!-- Table -->
-            <table class="table table-hover bg-light">
+            <table class="table table-striped table-hover bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -70,7 +70,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let leave of leavesList">
+                    <tr *ngFor="let leave of filteredLeaves">
                         <td>
                             {{leave.name}}
                         </td>

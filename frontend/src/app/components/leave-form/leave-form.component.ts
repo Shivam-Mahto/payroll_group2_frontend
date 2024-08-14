@@ -10,6 +10,13 @@ import { Component } from '@angular/core';
 })
 export class LeaveFormComponent {
 
+  leavesData = 
+    {
+      leavesTaken : 123,
+      leavesLeft : 23,
+      pendingRequests : 1
+    }
+
   leavesList = [
     {
       name: "Shivam",
@@ -21,7 +28,7 @@ export class LeaveFormComponent {
     },
     {
       name: "Shivam",
-      startDate: "01/02/2024",
+      startDate: "03/02/2024",
       endDate: "02/02/2024",
       employeeId: 2,
       type: 'sick',
@@ -29,7 +36,7 @@ export class LeaveFormComponent {
     },
     {
       name: "Shivam",
-      startDate: "01/02/2024",
+      startDate: "02/02/2024",
       endDate: "02/02/2024",
       employeeId: 3,
       type: 'sick',
@@ -47,10 +54,12 @@ export class LeaveFormComponent {
   ];
 
   onMonthChange(month: string) {
+    console.log(month);
     this.selectedMonth = month;
     this.filterLeaves();
   }
 
+  //TODO Filter uses mmddyyyy and not ddmmyyyy
   filterLeaves() {
     if (this.selectedMonth === 'All') {
       this.filteredLeaves = this.leavesList;
