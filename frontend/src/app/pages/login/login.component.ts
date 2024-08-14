@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -13,8 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent {
 
   signInForm = new FormGroup({
-    email: new FormControl(''),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl(''),
   })
 
+  print() {
+    console.log("submit");
+  }
 }

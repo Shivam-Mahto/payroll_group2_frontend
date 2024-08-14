@@ -3,17 +3,18 @@
     <form [formGroup]="signInForm" class="w-30 p-4 rounded box-shadow" style="background-color: white;">
         <h4 class="mb-5 text-center font-weight-bold">Sign in to your account</h4>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="email">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Sign in</button>
     </form>
    
     <div>
-        {{signInForm.value | json}}
+        <!-- {{signInForm.value | json}} -->
+         {{signInForm.errors}}
     </div>
 </div>
