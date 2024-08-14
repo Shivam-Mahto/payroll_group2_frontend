@@ -1,5 +1,6 @@
-<div class="d-flex d-flex flex-column justify-content-center align-items-center vh-100 vw-100">
-    <form (ngSubmit)="signInForm.valid && print()" [formGroup]="signInForm" class="w-25">
+<div class="d-flex d-flex flex-column justify-content-center align-items-center vh-100 vw-100" style = "background-color: grey;">
+   
+    <form [formGroup]="signInForm" class="w-30 p-4 rounded box-shadow" style="background-color: white;">
         <h4 class="mb-5 text-center font-weight-bold">Sign in to your account</h4>
         <div class="form-group">
             <label for="email">Email address</label>
@@ -11,6 +12,7 @@
         </div>
         <button type="submit" class="btn btn-primary w-100">Sign in</button>
     </form>
+   
     <div>
         <!-- {{signInForm.value | json}} -->
          {{signInForm.errors}}
