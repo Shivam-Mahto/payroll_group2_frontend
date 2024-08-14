@@ -1,0 +1,100 @@
+<body>
+    <div class="container mt-5 p-3 bg-light rounded">
+
+        <!-- Breadcrumb -->
+        <!-- <nav aria-label="breadcrumb">
+            <ol class="breadcrumb rounded bg-light">
+                <li class="breadcrumb-item"><a href="#">Leave</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Summary</li>
+            </ol>
+        </nav> -->
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h4">Leave Requests</h1>
+        </div>
+
+        <!-- Profile Selector
+        <div class="mb-4">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Mark Osimpson</option>
+                <option value="1">John Doe</option>
+                <option value="2">Jane Doe</option>
+            </select>
+        </div> -->
+
+        <!-- Summary Cards -->
+        <!-- <div class="row mb-4"> -->
+            <!-- <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h2 class="h5 mb-0">12</h2>
+                    <p class="text-muted mb-0">Leave taken</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h2 class="h5 mb-0">23 days</h2>
+                    <p class="text-muted mb-0">Upcoming leave</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center p-3">
+                    <h2 class="h5 mb-0">6</h2>
+                    <p class="text-muted mb-0">Pending request</p>
+                </div>
+            </div> -->
+        <!-- </div> -->
+        
+
+        <!-- Search and Date Picker -->
+        <div class="d-flex justify-content-between mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search with an Employee Code">
+            <div class="">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <a class="nav-link icon-circle" href="#" aria-label="Search"><i class="fas fa-search"></i></a>
+                </button>
+            </div>
+        </div>
+    <div class="rounded">
+        <!-- Table -->
+            <table class="table border rounded">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Employee Code</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr>
+                        <td>
+                            Jeremy Neigh
+                        </td>
+                        <td>12/12/12</td>
+                        <td>12/12/25</td>
+                        <td>54972</td>
+                        <td>Sick</td>
+                        <td>Pending</td>
+                        <td>
+                            <div class="btn border bg-danger">Accept</div>
+                            <div class="btn border bg-success">Reject</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+ 
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Prev</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>

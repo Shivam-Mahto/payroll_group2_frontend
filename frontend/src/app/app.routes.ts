@@ -5,6 +5,7 @@ import { LeaveFormComponent } from './components/leave-form/leave-form.component
 import { SalaryComponent } from './components/salary/salary.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { LeaveRequestsComponent } from './components/admin-dashboard-components/leave-requests/leave-requests.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -27,7 +28,7 @@ export const routes: Routes = [
         }, {
             path: 'employee-list', component: ProfileComponent
         }, {
-            path: 'leave-request', component: ProfileComponent
+            path: 'leave-request', component: LeaveRequestsComponent
         }
     ]  
     },
