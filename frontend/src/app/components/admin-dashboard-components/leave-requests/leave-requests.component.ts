@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-leave-requests',
   standalone: true,
-  imports: [CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './leave-requests.component.html',
   styleUrl: './leave-requests.component.css'
 })
@@ -25,4 +27,19 @@ export class LeaveRequestsComponent {
       type: "Sick"
     }
   ]
+
+  searchTerm: string = "";
+  filteredLeaveRequests = this.leaveRequests;
+
+  searchLeaveRequests() {
+    console.log(this.searchTerm);
+
+    if (this.searchTerm) {
+      this.filteredLeaveRequests = this.leaveRequests.filter(request =>
+        request.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredLeaveRequests = this.leaveRequests;
+    }
+  }
 }
