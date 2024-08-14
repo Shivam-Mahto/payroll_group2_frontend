@@ -12,3 +12,75 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+<body>
+    <div class="container mt-5 p-3 border rounded">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h4">Leaves</h1>
+            <div class="">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter by Month</button>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-center p-3 bg-light">
+                    <h2 class="h5 mb-0">12</h2>
+                    <p class="text-muted mb-0">Leaves Taken</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center p-3 bg-light">
+                    <h2 class="h5 mb-0">23</h2>
+                    <p class="text-muted mb-0">Leaves Left</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center p-3 bg-light">
+                    <h2 class="h5 mb-0">1</h2>
+                    <p class="text-muted mb-0">Pending Requests</p>
+                </div>
+            </div>
+        </div>
+        
+
+    <div class="rounded">
+        <!-- Table -->
+            <table class="table table-hover bg-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Employee Code</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let leave of leavesList">
+                        <td>
+                            {{leave.name}}
+                        </td>
+                        <td>{{leave.startDate}}</td>
+                        <td>{{leave.endDate}}</td>
+                        <td>{{leave.employeeId}}</td>
+                        <td>{{leave.type}}</td>
+                        <td>{{leave.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+ 
+        <!-- Pagination -->
+        <!-- <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Prev</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav> -->
+    </div>
