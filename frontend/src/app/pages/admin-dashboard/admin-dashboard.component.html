@@ -1,6 +1,6 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column" style="width: 100%;">
     <app-navbar></app-navbar>
-    <div class="d-flex" style="min-width: 100vw; min-height: 100vh;">
+    <div class="d-flex" style="width: 100%; min-height: 100vh;">
         <!-- <div class="p-2 d-flex flex-column" style="background-color: #F1F2F7; width: 20vw;">
             <div role="button" class="rounded" *ngFor="let item of list" style="color: #5A6ACF">
                 <div class="dashboard-list-item border rounded m-2 p-2" [routerLink]="[item.url]">
@@ -9,7 +9,7 @@
             </div>
         </div> -->
         <app-admin-sidebar></app-admin-sidebar>
-        <div class="p-4" style="width: 80vw;">
+        <div class="p-4" style="width: 100%;">
             <router-outlet></router-outlet>
         </div>
     </div>
