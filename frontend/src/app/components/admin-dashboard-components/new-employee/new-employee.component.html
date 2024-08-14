@@ -1,0 +1,40 @@
+<div class="w-50">
+    <form [formGroup]="newEmployeeForm">
+        <div class="d-flex align-items-center mb-4">
+            <i type="submit" (click)="navigateBack()" class="fa fa-arrow-left fa-xl mr-4" aria-hidden="true"></i>
+            <h3>Add Employee</h3>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input formControlName="name" type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input formControlName="email" type="text" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone no.</label>
+            <input formControlName="phone" type="text" class="form-control" id="employeeId">
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of birth</label>
+            <input formControlName="dob" type="date" class="form-control" id="startDate">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select formControlName="role" class="custom-select" id="role">
+                <option selected>Choose...</option>
+                <option value="HR">HR</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Consultant">Consultant</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ctc">CTC</label>
+            <input formControlName="ctc" type="text" class="form-control" id="email">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <!-- {{newEmployeeForm.value | json}} -->
+</div>

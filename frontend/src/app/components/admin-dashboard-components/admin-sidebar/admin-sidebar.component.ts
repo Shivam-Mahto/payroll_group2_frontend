@@ -16,7 +16,11 @@ export class AdminSidebarComponent {
     { name: 'Profile', icon: 'fas fa-user', link: 'profile', isActive: false },
     { name: 'Leaves', icon: 'fas fa-calendar-day', link: 'leaves', isActive: false },
     { name: 'Salary', icon: 'fas fa-dollar-sign', link: 'salary', isActive: false },
+<<<<<<< HEAD
     { name: 'Leave Requests', icon: 'fas fa-dollar-sign', link: 'leave-request', isActive: false }
     
+=======
+    { name: 'Leave Requests', icon: 'fas fa-dollar-sign', link: '/salary', isActive: false }
+>>>>>>> db5cc3148b14d042bb708f8ca789a9da96a12c0b
   ];
 }
