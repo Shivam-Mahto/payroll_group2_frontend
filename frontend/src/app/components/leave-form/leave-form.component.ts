@@ -1,4 +1,4 @@
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -36,4 +36,30 @@ export class LeaveFormComponent {
       status: "pending"
     }
   ]
+
+
+  selectedMonth: string = 'All'; // Default to 'All'
+  filteredLeaves: any[] = this.leavesList;
+
+  months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  onMonthChange(month: string) {
+    this.selectedMonth = month;
+    this.filterLeaves();
+  }
+
+  filterLeaves() {
+    if (this.selectedMonth === 'All') {
+      this.filteredLeaves = this.leavesList;
+    } else {
+      const monthIndex = this.months.indexOf(this.selectedMonth) + 1;
+      this.filteredLeaves = this.leavesList.filter(leave => {
+        const leaveMonth = new Date(leave.startDate).getMonth() + 1; // +1 because months are 0-based
+        return leaveMonth === monthIndex;
+      });
+    }
+  }
 }
