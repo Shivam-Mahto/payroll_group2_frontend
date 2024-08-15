@@ -1,37 +1,63 @@
-<div class="d-flex flex-column">
-    <div class="d-flex w-100 justify-content-end mb-4">   
-        <button [routerLink]="['add-employee']" type="button" class="btn btn-primary">Add Employee</button>
-    </div>
-    <div>
-        <table class="table table-striped">
-            <thead>
+<div class="d-flex w-100 justify-content-end mb-4">   
+  <button [routerLink]="['add-employee']" type="button" class="btn btn-primary">Add Employee</button>
+</div>
+<div class="container p-3 bg-light rounded border">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h4">All Employees</h1>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3">
+      <input type="text" class="form-control mr-sm-2" placeholder="Search..." [(ngModel)]="searchTerm"
+          (ngModelChange)="searchLeaveRequests()">
+      <div class="">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button"
+              (click)="searchLeaveRequests()">
+              <i class="fas fa-search"></i>
+          </button>
+      </div>
+  </div>
+
+  <!-- {{searchTerm}} -->
+
+  <div class=" rounded p-1">
+      <!-- Table -->
+      <table class="table border rounded">
+          <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Employee Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Email</th>
+                  <!-- <th scope="col">Status</th> -->
+                  <th scope="col">Action</th>
+
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
+          </thead>
+          <tbody class="bg-white">
+              <tr *ngFor="let employee of filteredEmployeeList">
+                  <td> {{employee.empId}} </td>
+                  <td> {{employee.name}} </td>
+                  <td> {{employee.role}} </td>
+                  <td> {{employee.email}} </td>
+                  <td class="text-success">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-              </tr>
-            </tbody>
-          </table>  
-    </div>
+          </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="pr-1">
+          <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-end">
+                  <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1">Prev</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+          </nav>
+      </div>
+  </div>
 </div>

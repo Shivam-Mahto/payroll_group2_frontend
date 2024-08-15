@@ -15,7 +15,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" (click)="onMonthChange('All')">All</a>
-          <a class="dropdown-item" *ngFor="let month of months" (click)="onMonthChange(month)">{{ month }}</a>
+          <a type="submit" class="dropdown-item" *ngFor="let month of months" (click)="onMonthChange(month)">{{ month }}</a>
         </div>
 
       </div>
@@ -66,7 +66,9 @@
             <td>{{leave.endDate}}</td>
             <td>{{leave.employeeId}}</td>
             <td>{{leave.type}}</td>
-            <td>{{leave.status}}</td>
+            <td *ngIf="leave.status == 'Pending'" class="text-warning"><i class="fa-solid fa-clock"></i> {{leave.status}}</td>
+            <td *ngIf="leave.status == 'Rejected'" class="text-danger"><i class="fa-solid fa-circle-xmark"></i> {{leave.status}}</td>
+            <td *ngIf="leave.status == 'Approved'" class="text-success"><i class="fa-solid fa-circle-check"></i> {{leave.status}}</td>
           </tr>
         </tbody>
       </table>
