@@ -1,1 +1,10 @@
-<p>accountant-dashboard works!</p>
+<div class="d-flex flex-column" style="width: 100%;">
+    <app-navbar></app-navbar>
+    <div class="d-flex" style="width: 100%; min-height: 100vh;">
+        <app-accountant-sidebar></app-accountant-sidebar>
+        <div class="p-4" style="width: 100%;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

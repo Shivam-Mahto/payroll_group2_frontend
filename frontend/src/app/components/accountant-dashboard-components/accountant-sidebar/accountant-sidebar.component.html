@@ -1,0 +1,17 @@
+<div class="container-fluid" style="width: 20vw; height: 100%;">
+    <div class="row" style="height: 100%;">
+  
+      <div class="bg-light p-3 d-flex flex-column w-100" style="height: 100%; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);">
+        <div class="list-group">
+          <a *ngFor="let item of items; let i = index" [routerLink]="[item.link]"
+            class="list-group-item list-group-item-action rounded d-flex justify-content-between align-items-center mb-3"
+            [ngClass]="{'active': item.isActive}">
+            <div class="d-flex align-items-center">
+              <i [class]="item.icon"></i> <span class="ml-2">{{ item.name }}</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
