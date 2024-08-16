@@ -9,5 +9,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  empDetails = {
+    name : "John Doe",
+    role : "admin"
+  }
 }
