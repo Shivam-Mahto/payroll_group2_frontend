@@ -1,13 +1,14 @@
+import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { adminDashboardItems } from '../../utils/dashboardList';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
-
+export class NavbarComponent { 
+  dashboardItems = adminDashboardItems;
 }

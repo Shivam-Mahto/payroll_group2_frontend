@@ -1,7 +1,9 @@
 <div class="d-flex flex-column" style="width: 100%;">
     <app-navbar></app-navbar>
     <div class="d-flex" style="width: 100%; min-height: 100vh;">
-        <app-employee-sidebar></app-employee-sidebar>
+        <div class="d-none d-lg-block">
+            <app-employee-sidebar></app-employee-sidebar>
+        </div>
         <div class="p-4" style="width: 100%;">
             <router-outlet></router-outlet>
         </div>

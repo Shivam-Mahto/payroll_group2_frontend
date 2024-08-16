@@ -41,16 +41,16 @@
     </div>
 
 
-    <div class="rounded">
+    <div class="rounded overflow-auto">
       <!-- Table -->
-      <table class="table table-striped table-hover bg-light">
+      <table class="table table-striped table-hover bg-light text-nowrap">
         <thead>
           <tr>
             <th scope="col">Employee ID</th>
             <th scope="col">Name</th>
             <th scope="col">Month</th>
             <th scope="col">Salary</th>
-            <th scope="col">Download</th>
+            <th scope="col" class="text-center">Download</th>
           </tr>
         </thead>
         <tbody>
@@ -61,8 +61,8 @@
             <td>{{salary.name}}</td>
             <td>{{salary.month}}</td>
             <td>{{salary.salary}}</td>
-            <td>
-              <i type="submit" class="fa-solid fa-circle-down"></i>
+            <td class="text-center">
+              <i type="submit" class="fa-solid fa-circle-down text-primary"></i>
             </td>
           </tr>
         </tbody>
