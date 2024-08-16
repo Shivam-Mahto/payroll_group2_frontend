@@ -33,7 +33,7 @@ export class LeaveRequestsComponent {
 
   searchLeaveRequests() {
     console.log(this.searchTerm);
-    if (this.searchTerm == "")
+    if (this.searchTerm == " ")
       this.filteredLeaveRequests = this.leaveRequests;
     else {
       this.filteredLeaveRequests = this.leaveRequests.filter(request =>
