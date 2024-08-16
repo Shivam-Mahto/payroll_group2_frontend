@@ -13,6 +13,7 @@ import { EmployeeListComponent } from './components/admin-dashboard-components/e
 import { NewEmployeeComponent } from './components/admin-dashboard-components/new-employee/new-employee.component';
 import { AccountantDashboardComponent } from './pages/accountant-dashboard/accountant-dashboard.component';
 import { GeneratePayslipComponent } from './components/accountant-dashboard-components/generate-payslip/generate-payslip.component';
+import { DashboardWelcomeComponent } from './components/dashboard-welcome/dashboard-welcome.component';
 // import { LeaveComponent } from './components/leave/leave.component';
 
 export const routes: Routes = [
@@ -32,6 +33,8 @@ export const routes: Routes = [
                 path: 'info', component: InfoComponent
             }, {
                 path: 'whyukg', component: WhyukgComponent
+            }, {
+                path: '', component: DashboardWelcomeComponent
             }
         ]
     },
@@ -57,6 +60,8 @@ export const routes: Routes = [
                 path: 'info', component: InfoComponent
             }, {
                 path: 'whyukg', component: WhyukgComponent
+            }, {
+                path: '', component: DashboardWelcomeComponent
             }
         ]
     },
@@ -77,6 +82,8 @@ export const routes: Routes = [
                 path: 'whyukg', component: WhyukgComponent
             }, {
                 path: 'generate-payslip', component: GeneratePayslipComponent
+            }, {
+                path: '', component: DashboardWelcomeComponent
             }
         ]
     },
