@@ -13,7 +13,7 @@ import { accountantDashboardItems, adminDashboardItems, dashboardList } from '..
 export class NavbarComponent {
   empDetails = {
     name: "Jane Doe",
-    role: "employee"
+    role: "admin"
   };
 
   dashboardItems: any;
