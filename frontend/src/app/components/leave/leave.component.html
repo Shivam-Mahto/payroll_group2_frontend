@@ -17,9 +17,8 @@
           <a class="dropdown-item" (click)="onMonthChange('All')">All</a>
           <a type="submit" class="dropdown-item" *ngFor="let month of months" (click)="onMonthChange(month)">{{ month }}</a>
         </div>
-
       </div>
-    </div>
+    </div>  
 
     <!-- Summary Cards -->
     <div class="row mb-4">
@@ -44,9 +43,9 @@
     </div>
 
 
-    <div class="rounded">
+    <div class="rounded overflow-auto">
       <!-- Table -->
-      <table class="table table-striped table-hover bg-light">
+      <table class="table table-striped table-hover bg-light text-nowrap">
         <thead>
           <tr>
             <th scope="col">Name</th>
