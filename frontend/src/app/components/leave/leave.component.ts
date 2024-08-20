@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LeavesService } from '../../services/leaves.service';
 
 @Component({
   selector: 'app-leave',
@@ -18,33 +19,40 @@ export class LeaveComponent {
       pendingRequests : 1
     }
 
-  leavesList = [
-    {
-      name: "Shivam",
-      startDate: "01/02/2024",
-      endDate: "02/02/2024",
-      employeeId: 1,
-      type: 'sick',
-      status: "Pending"
-    },
-    {
-      name: "Shivam",
-      startDate: "03/02/2024",
-      endDate: "02/02/2024",
-      employeeId: 2,
-      type: 'sick',
-      status: "Rejected"
-    },
-    {
-      name: "Shivam",
-      startDate: "02/03/2024",
-      endDate: "02/03/2024",
-      employeeId: 3,
-      type: 'sick',
-      status: "Approved"
-    }
-  ]
+  // leavesList = [
+  //   {
+  //     name: "Shivam",
+  //     startDate: "01/02/2024",
+  //     endDate: "02/02/2024",
+  //     employeeId: 1,
+  //     type: 'sick',
+  //     status: "Pending"
+  //   },
+  //   {
+  //     name: "Shivam",
+  //     startDate: "03/02/2024",
+  //     endDate: "02/02/2024",
+  //     employeeId: 2,
+  //     type: 'sick',
+  //     status: "Rejected"
+  //   },
+  //   {
+  //     name: "Shivam",
+  //     startDate: "02/03/2024",
+  //     endDate: "02/03/2024",
+  //     employeeId: 3,
+  //     type: 'sick',
+  //     status: "Approved"
+  //   }
+  // ]
 
+  leavesList : any[] = [];
+
+  constructor(private leavesService: LeavesService) { }
+
+  ngOnInit() {
+    this.fetchAllLeaves("152");
+  }
 
   selectedMonth: string = 'All'; // Default to 'All'
   filteredLeaves: any[] = this.leavesList;
@@ -74,5 +82,16 @@ export class LeaveComponent {
         return leaveMonth === monthIndex;
       });
     }
+  }
+
+  fetchAllLeaves(id: string) {
+
+    this.leavesService.getAllLeaves(id).subscribe((res) => {
+      console.log(res);
+      this.leavesList = res;
+      this.filteredLeaves = res;
+    }, (err) => {
+      console.log(err);
+    })
   }
 }

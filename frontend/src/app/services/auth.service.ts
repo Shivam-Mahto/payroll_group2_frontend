@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
-
+  constructor(private http: HttpClient) { }
+  
   
 
 }
