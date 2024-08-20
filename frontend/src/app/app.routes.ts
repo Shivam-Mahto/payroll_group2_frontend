@@ -14,28 +14,33 @@ import { NewEmployeeComponent } from './components/admin-dashboard-components/ne
 import { AccountantDashboardComponent } from './pages/accountant-dashboard/accountant-dashboard.component';
 import { GeneratePayslipComponent } from './components/accountant-dashboard-components/generate-payslip/generate-payslip.component';
 import { DashboardWelcomeComponent } from './components/dashboard-welcome/dashboard-welcome.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ForgotPasswordTokenComponent } from './pages/forgot-password-token/forgot-password-token.component';
 // import { LeaveComponent } from './components/leave/leave.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
-
+    { path: 'reset-password', component: ResetPasswordComponent },
+    { path: 'forgot-password', component: ForgotPasswordComponent },
+    { path: 'forgot-password/:token', component: ForgotPasswordTokenComponent},
     // Employee Routes
     {
         path: 'employee/dashboard', component: EmployeeDashboardComponent, children: [{
-                path: 'leaves', component: LeaveComponent
-            }, {
-                path: 'leaves/leave-request', component: LeaveFormComponent
-            }, {
-                path: 'salary', component: SalaryComponent
-            }, {
-                path: 'profile', component: ProfileComponent
-            }, {
-                path: 'info', component: InfoComponent
-            }, {
-                path: 'whyukg', component: WhyukgComponent
-            }, {
-                path: '', component: DashboardWelcomeComponent
-            }
+            path: 'leaves', component: LeaveComponent
+        }, {
+            path: 'leaves/leave-request', component: LeaveFormComponent
+        }, {
+            path: 'salary', component: SalaryComponent
+        }, {
+            path: 'profile', component: ProfileComponent
+        }, {
+            path: 'info', component: InfoComponent
+        }, {
+            path: 'whyukg', component: WhyukgComponent
+        }, {
+            path: '', component: DashboardWelcomeComponent
+        }
         ]
     },
 
@@ -56,7 +61,7 @@ export const routes: Routes = [
                 path: 'salary', component: SalaryComponent
             }, {
                 path: 'profile', component: ProfileComponent
-            },  {
+            }, {
                 path: 'info', component: InfoComponent
             }, {
                 path: 'whyukg', component: WhyukgComponent
@@ -69,22 +74,22 @@ export const routes: Routes = [
     // Accountant routes
     {
         path: 'accountant/dashboard', component: AccountantDashboardComponent, children: [{
-                path: 'leaves', component: LeaveComponent
-            }, {
-                path: 'leaves/leave-request', component: LeaveFormComponent
-            }, {
-                path: 'salary', component: SalaryComponent
-            }, {
-                path: 'profile', component: ProfileComponent
-            }, {
-                path: 'info', component: InfoComponent
-            }, {
-                path: 'whyukg', component: WhyukgComponent
-            }, {
-                path: 'generate-payslip', component: GeneratePayslipComponent
-            }, {
-                path: '', component: DashboardWelcomeComponent
-            }
+            path: 'leaves', component: LeaveComponent
+        }, {
+            path: 'leaves/leave-request', component: LeaveFormComponent
+        }, {
+            path: 'salary', component: SalaryComponent
+        }, {
+            path: 'profile', component: ProfileComponent
+        }, {
+            path: 'info', component: InfoComponent
+        }, {
+            path: 'whyukg', component: WhyukgComponent
+        }, {
+            path: 'generate-payslip', component: GeneratePayslipComponent
+        }, {
+            path: '', component: DashboardWelcomeComponent
+        }
         ]
     },
 ];

@@ -12,7 +12,7 @@ import { accountantDashboardItems, adminDashboardItems, dashboardList } from '..
 
 export class NavbarComponent {
   empDetails = {
-    name: "Jane Doe",
+    empId: "",
     role: "admin"
   };
 
@@ -20,6 +20,10 @@ export class NavbarComponent {
 
   constructor() {
     // Assign dashboardItems based on the role
+
+    this.empDetails.empId = localStorage.getItem('userId') || "";
+    this.empDetails.role = localStorage.getItem('role') || "";
+
     if (this.empDetails.role === "employee") {
       this.dashboardItems = dashboardList;
     } else if (this.empDetails.role === "admin") {
