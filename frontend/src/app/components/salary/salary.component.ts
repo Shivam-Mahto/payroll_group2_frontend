@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SalaryService } from '../../services/salary.service';
 
 @Component({
   selector: 'app-salary',
@@ -13,21 +14,21 @@ export class SalaryComponent {
 
   salaryComponent = 
     {
-      basic : "6L",
-      hra : "6L",
-      allowances : "40k"
+      basic : "dummy",
+      hra : "dummy",
+      allowances : "dummy"
     }
 
   salaryList = [
     {
       employeeId: 1,
-      name: "Shivam",
+      name: "dummy",
       month: "January",
       salary: "40,000"
     },
     {
       employeeId: 1,
-      name: "Shivam",
+      name: "dummy",
       month: "February",
       salary: "40,000"
     },
@@ -45,6 +46,12 @@ export class SalaryComponent {
     }
   ]
 
+  constructor(private salaryService : SalaryService) { }
+
+  ngOnInit() {
+    this.fetchSalaryDetails("id");
+    this.fetchMonthlySalaryList("id");
+  }
 
   selectedMonth: string = 'All'; // Default to 'All'
   filteredSalaryList: any[] = this.salaryList;
@@ -71,4 +78,33 @@ export class SalaryComponent {
       });
     }
   }
+
+
+  //fetching Basic Salary Data
+  fetchSalaryDetails(id : String) {
+    this.salaryService.getSalaryData(id).subscribe(
+      (res) => {
+        console.log(res);
+        this.salaryComponent = res[0];  //ASSUMING FIRST OBJECT
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  //fetching Monthly Salary Data
+  fetchMonthlySalaryList(id : String) {
+    this.salaryService.getMonthlySalaryData(id).subscribe(
+      (res) => {
+        console.log(res);
+        this.salaryList = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+
 }

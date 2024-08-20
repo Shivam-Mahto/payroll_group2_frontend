@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { EmployeeService } from '../../../services/employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -12,28 +13,30 @@ import { RouterModule } from '@angular/router';
 })
 export class EmployeeListComponent {
 
+  // employeeList : any[] = []
+
   employeeList = [
     {
       empId: 1,
-      name: "Jeremy Neigh",
+      name: "chip",
       role: "Employee",
       email: "jeremy@gmail.com"
     },
     {
       empId: 2,
-      name: "Shivam",
+      name: "tapak",
       role: "Employee",
       email: "shivam@gmail.com"
     },
     {
       empId: 3,
-      name: "jack",
+      name: "dum",
       role: "Accountant",
       email: "jack@gmail.com"
     },
     {
       empId: 4,
-      name: "Jeremy Neigh",
+      name: "dum",
       role: "Employee",
       email: "jeremy@gmail.com"
     },
@@ -41,6 +44,13 @@ export class EmployeeListComponent {
 
   searchTerm: string = "";
   filteredEmployeeList = this.employeeList;
+
+  constructor(private employeeService : EmployeeService) {}
+
+  ngOnInit() {
+    this.fetchEmployeeList("id");
+    this.filteredEmployeeList = this.employeeList;
+  }
 
   searchLeaveRequests() {
     
@@ -54,4 +64,17 @@ export class EmployeeListComponent {
       );
     }
   }
+
+  fetchEmployeeList(id : String) {
+    this.employeeService.getEmployeeList("id").subscribe(
+      (res) => {
+        console.log(res);
+        this.employeeList = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
 }
