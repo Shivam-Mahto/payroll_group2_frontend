@@ -1,30 +1,72 @@
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>twitter</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="d-flex flex-column">
+
+  <div class="container p-3 border rounded">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h4">Salary Info</h1>
+      <div class="dropdown">
+        <button class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fa fa-calendar" aria-hidden="true"></i> {{ selectedMonth }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="onMonthChange('All')">All</a>
+          <a type="submit" class="dropdown-item" *ngFor="let month of months" (click)="onMonthChange(month)">{{ month }}</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card text-center p-3 bg-light">
+          <h2 class="h5 mb-0"> {{salaryComponent.basic}} </h2>
+          <p class="text-muted mb-0">Basic</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3 bg-light">
+          <h2 class="h5 mb-0"> {{salaryComponent.hra}} </h2>
+          <p class="text-muted mb-0">HRA</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3 bg-light">
+          <h2 class="h5 mb-0"> {{salaryComponent.allowances}} </h2>
+          <p class="text-muted mb-0">Allowances</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="rounded overflow-auto">
+      <!-- Table -->
+      <table class="table table-striped table-hover bg-light text-nowrap">
+        <thead>
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Month</th>
+            <th scope="col">Salary</th>
+            <th scope="col" class="text-center">Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let salary of filteredSalaryList">
+            <td>
+              {{salary.employeeId}}
+            </td>
+            <td>{{salary.name}}</td>
+            <td>{{salary.month}}</td>
+            <td>{{salary.salary}}</td>
+            <td class="text-center">
+              <i type="submit" class="fa-solid fa-circle-down text-primary"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+@media print {
+
+    th,
+    td {
+        background-color: #00bfae !important;
+    }
+
+
+    tr.fw-bold td {
+        background-color: #00bfae !important;
+
+    }
+
+
+
+}

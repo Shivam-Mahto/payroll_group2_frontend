@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-employee-sidebar',
   standalone: true,
-  imports: [RouterModule, RouterLink, CommonModule],
+  imports: [RouterModule, RouterLink, CommonModule, FooterComponent],
   templateUrl: './employee-sidebar.component.html',
   styleUrl: './employee-sidebar.component.css'
 })

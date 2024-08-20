@@ -25,7 +25,7 @@ export class LeaveComponent {
       endDate: "02/02/2024",
       employeeId: 1,
       type: 'sick',
-      status: "pending"
+      status: "Pending"
     },
     {
       name: "Shivam",
@@ -33,15 +33,15 @@ export class LeaveComponent {
       endDate: "02/02/2024",
       employeeId: 2,
       type: 'sick',
-      status: "pending"
+      status: "Rejected"
     },
     {
       name: "Shivam",
-      startDate: "02/02/2024",
-      endDate: "02/02/2024",
+      startDate: "02/03/2024",
+      endDate: "02/03/2024",
       employeeId: 3,
       type: 'sick',
-      status: "pending"
+      status: "Approved"
     }
   ]
 
@@ -55,19 +55,22 @@ export class LeaveComponent {
   ];
 
   onMonthChange(month: string) {
-    console.log(month);
+    // console.log(month);
     this.selectedMonth = month;
     this.filterLeaves();
   }
 
-  //TODO Filter uses mmddyyyy and not ddmmyyyy
+  // default javascript date has mmddyyyy format
   filterLeaves() {
     if (this.selectedMonth === 'All') {
       this.filteredLeaves = this.leavesList;
-    } else {
+    } else { 
       const monthIndex = this.months.indexOf(this.selectedMonth) + 1;
       this.filteredLeaves = this.leavesList.filter(leave => {
-        const leaveMonth = new Date(leave.startDate).getMonth() + 1; // +1 because months are 0-based
+        const dateParts = leave.startDate.split('/');
+        const newDateParts = [dateParts[1], dateParts[0], dateParts[2]];
+        const leaveMonth = new Date(newDateParts.join('/')).getMonth() + 1; // +1 because months are 0-based
+        console.log(leave.startDate, leaveMonth);
         return leaveMonth === monthIndex;
       });
     }

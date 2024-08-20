@@ -1,4 +1,4 @@
-<div  class="w-50">
+<div class="col-md-8">
     <form [formGroup]="leaveApplication" >
         <div class="d-flex align-items-center mb-4">
             <i type="submit" (click)="navigateBack()" class="fa fa-arrow-left fa-xl mr-4" aria-hidden="true"></i>
@@ -30,5 +30,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    {{leaveApplication.value | json}}
+    <!-- {{leaveApplication.value | json}} -->
 </div>

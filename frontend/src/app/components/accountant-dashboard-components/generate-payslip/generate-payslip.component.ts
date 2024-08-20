@@ -3,20 +3,13 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-salary',
+  selector: 'app-generate-payslip',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './salary.component.html',
-  styleUrl: './salary.component.css'
+  templateUrl: './generate-payslip.component.html',
+  styleUrl: './generate-payslip.component.css'
 })
-export class SalaryComponent {
-
-  salaryComponent = 
-    {
-      basic : "6L",
-      hra : "6L",
-      allowances : "40k"
-    }
+export class GeneratePayslipComponent {
 
   salaryList = [
     {
@@ -54,6 +47,11 @@ export class SalaryComponent {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
+  years = [
+    '2023',
+    '2024'
+  ];
+  
   onMonthChange(month: string) {
     console.log(month);
     this.selectedMonth = month;
