@@ -1,7 +1,7 @@
 export const dashboardList = [
-    { name: 'Leaves', url: 'leaves' },
-    { name: 'Salary', url: 'salary' },
-    { name: 'Profile', url: 'profile' }
+    { name: 'Leaves', icon: 'fas fa-calendar-day', link: 'leaves', isActive: false },
+    { name: 'Salary', icon: 'fas fa-dollar-sign', link: 'salary', isActive: false },
+    { name: 'Profile', icon: 'fas fa-user', link: 'profile', isActive: false },
 ];
 
 export const adminDashboardItems = [
@@ -11,3 +11,10 @@ export const adminDashboardItems = [
     { name: 'Leaves', icon: 'fas fa-calendar-day', link: 'leaves', isActive: false },
     { name: 'Salary', icon: 'fas fa-dollar-sign', link: 'salary', isActive: false }
 ];
+
+export const accountantDashboardItems = [
+    { name: 'Generate Payslip', icon: 'fa-solid fa-wallet', link: 'generate-payslip', isActive: false },
+    { name: 'Profile', icon: 'fas fa-user', link: 'profile', isActive: false },
+    { name: 'Salary', icon: 'fas fa-dollar-sign', link: 'salary', isActive: false },
+    { name: 'Leaves', icon: 'fas fa-calendar-day', link: 'leaves', isActive: false },
+  ];
