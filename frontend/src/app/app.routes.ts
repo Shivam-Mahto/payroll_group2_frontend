@@ -17,6 +17,7 @@ import { DashboardWelcomeComponent } from './components/dashboard-welcome/dashbo
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ForgotPasswordTokenComponent } from './pages/forgot-password-token/forgot-password-token.component';
+import { GeneratepdfComponent } from './components/generatepdf/generatepdf.component';
 // import { LeaveComponent } from './components/leave/leave.component';
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path: 'reset-password', component: ResetPasswordComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'forgot-password/:token', component: ForgotPasswordTokenComponent},
+    { path: 'generatepdf', component: GeneratepdfComponent},
     // Employee Routes
     {
         path: 'employee/dashboard', component: EmployeeDashboardComponent, children: [{
