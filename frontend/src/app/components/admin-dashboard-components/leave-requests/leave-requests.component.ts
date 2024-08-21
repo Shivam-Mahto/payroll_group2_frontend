@@ -17,22 +17,6 @@ export class LeaveRequestsComponent {
   filteredLeaveRequests;
 
   constructor(private leaveService: LeavesService) {
-    // this.leaveRequests = [
-    //   {
-    //     name: "Jeremy Neigh",
-    //     startDate: "12/12/12",
-    //     endDate: "12/12/13",
-    //     empId: "54902",
-    //     type: "Sick"
-    //   },
-    //   {
-    //     name: "Rick",
-    //     startDate: "12/12/12",
-    //     endDate: "12/12/13",
-    //     empId: "54912",
-    //     type: "Sick"
-    //   }
-    // ];
     this.filteredLeaveRequests = this.leaveRequests;
   }
 
@@ -41,7 +25,6 @@ export class LeaveRequestsComponent {
   }
 
   searchTerm: string = "";
-  // filteredLeaveRequests = this.leaveRequests;
 
   searchLeaveRequests() {
 
@@ -61,6 +44,25 @@ export class LeaveRequestsComponent {
       console.log(res);
       this.leaveRequests = res;
       this.filteredLeaveRequests = res;
+    }, (err) => {
+      console.log(err);
+    })
+  }
+
+  acceptRequest(id: String) {
+    console.log("Clicked")
+    this.leaveService.accept(id).subscribe((res) => {
+      console.log(res);
+      this.fetchAllLeaveRequests();
+    }, (err) => {
+      console.log(err);
+    })
+  }
+
+  rejectRequest(id: String) {
+    this.leaveService.reject(id).subscribe((res) => {
+      console.log(res);
+      this.fetchAllLeaveRequests();
     }, (err) => {
       console.log(err);
     })

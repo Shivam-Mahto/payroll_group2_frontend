@@ -10,10 +10,10 @@
 
   <div class="d-flex justify-content-between mb-3 align-items-center">
       <input type="text" class="form-control mr-2" placeholder="Search..." [(ngModel)]="searchTerm"
-          (ngModelChange)="searchLeaveRequests()">
+          (ngModelChange)="filterEmployeeList()">
       <div class="">
           <button class="btn btn-outline-success my-2 my-sm-0" type="button"
-              (click)="searchLeaveRequests()">
+              (click)="filterEmployeeList()">
               <i class="fas fa-search"></i>
           </button>
       </div>
@@ -37,12 +37,13 @@
           </thead>
           <tbody class="bg-white">
               <tr *ngFor="let employee of filteredEmployeeList">
-                  <td> {{employee.empId}} </td>
-                  <td> {{employee.name}} </td>
+                  <td> {{employee.id}} </td>
+                  <td> {{employee.f_name}} {{employee.l_name}} </td>
                   <td> {{employee.role}} </td>
                   <td> {{employee.email}} </td>
-                  <td class="text-success">
-                    <i type="submit" class="fa-solid fa-pen-to-square"></i>
+                  <td class="text-success align-items-center justify-content-center">
+                    <i [routerLink]="['update-employee', employee.id]" type="submit" class="fa-solid fa-pen-to-square mr-2"></i>
+                    <i [routerLink]="['update-salary', employee.id]" type="submit" class="fa-solid fa-pen"></i>
                   </td>
               </tr>
           </tbody>

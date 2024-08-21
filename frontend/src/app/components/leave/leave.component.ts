@@ -51,7 +51,7 @@ export class LeaveComponent {
   constructor(private leavesService: LeavesService) { }
 
   ngOnInit() {
-    this.fetchAllLeaves("152");
+    this.fetchAllLeaves(localStorage.getItem('userId') || "");
   }
 
   selectedMonth: string = 'All'; // Default to 'All'

@@ -8,9 +8,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private httpService: HttpService) { }
-  
+
   register(data: Object) : Observable<any> {
-    console.log(data);
     return this.httpService.post<any>('auth/register', data);
   }  
 

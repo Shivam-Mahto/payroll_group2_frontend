@@ -12,29 +12,33 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Generate By EmployeeId</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" class="form-control mb-2" placeholder="Employee ID" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class="d-flex">
-                            <select class="custom-select mr-2">
-                                <option selected>Select Year...</option>
-                                <option *ngFor="let year of years" [value]="year">{{year}}</option>
-                            </select>
-                            <select class="custom-select">
-                                <option selected>Select Month...</option>
-                                <option *ngFor="let month of months" [value]="month">{{month}}</option>
-                            </select>
+                    <form [formGroup]="generateSalaryForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Generate By EmployeeId</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Generate</button>
-                    </div>
+                        <div class="modal-body">
+                            <input type="text" name="employeeId" formControlName="employeeId" class="form-control mb-2"
+                                placeholder="Employee ID" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="d-flex">
+                                <select name="year" formControlName="year" class="custom-select mr-2">
+                                    <option selected>Select Year...</option>
+                                    <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                                </select>
+                                <select name="month" formControlName="month" class="custom-select">
+                                    <option selected>Select Month...</option>
+                                    <option *ngFor="let month of months, let i = index" [value]="i+1">{{month}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button (click)="generateSalary()" type="button" class="btn btn-success"
+                                data-dismiss="modal">Generate</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -60,8 +64,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Employee ID</th>
-                        <th scope="col">Name</th>
                         <th scope="col">Month</th>
+                        <th scope="col">Year</th>
                         <th scope="col">Salary</th>
                         <th scope="col">Download</th>
                     </tr>
@@ -71,8 +75,8 @@
                         <td>
                             {{salary.employeeId}}
                         </td>
-                        <td>{{salary.name}}</td>
                         <td>{{salary.month}}</td>
+                        <td>{{salary.year}}</td>
                         <td>{{salary.salary}}</td>
                         <td>
                             <i type="submit" class="fa-solid fa-circle-down"></i>

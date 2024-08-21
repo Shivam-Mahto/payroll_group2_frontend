@@ -13,11 +13,14 @@ import { SalaryService } from '../../services/salary.service';
 export class SalaryComponent {
 
   salaryComponent = 
-    {
-      basic : "dummy",
-      hra : "dummy",
-      allowances : "dummy"
-    }
+  {
+    id: "",
+    employeeId: "",
+    basic: "",
+    hra: "",
+    allowance: "",
+    totalCtc: ""
+  }
 
   salaryList = [
     {
@@ -49,16 +52,16 @@ export class SalaryComponent {
   constructor(private salaryService : SalaryService) { }
 
   ngOnInit() {
-    this.fetchSalaryDetails("id");
-    this.fetchMonthlySalaryList("id");
+    this.fetchSalaryDetails(localStorage.getItem('userId') || "");
+    this.fetchMonthlySalaryList(localStorage.getItem('userId') || "");
   }
 
   selectedMonth: string = 'All'; // Default to 'All'
   filteredSalaryList: any[] = this.salaryList;
 
   months = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
   onMonthChange(month: string) {
@@ -80,25 +83,24 @@ export class SalaryComponent {
   }
 
 
-  //fetching Basic Salary Data
   fetchSalaryDetails(id : String) {
-    this.salaryService.getSalaryData(id).subscribe(
+    this.salaryService.get(id).subscribe(
       (res) => {
         console.log(res);
-        this.salaryComponent = res[0];  //ASSUMING FIRST OBJECT
+        this.salaryComponent = res;
       },
       (err) => {
         console.log(err);
       }
     )
   }
-
-  //fetching Monthly Salary Data
+  
   fetchMonthlySalaryList(id : String) {
-    this.salaryService.getMonthlySalaryData(id).subscribe(
+    this.salaryService.getPerMonth(id).subscribe(
       (res) => {
         console.log(res);
         this.salaryList = res;
+        this.filteredSalaryList = res;
       },
       (err) => {
         console.log(err);

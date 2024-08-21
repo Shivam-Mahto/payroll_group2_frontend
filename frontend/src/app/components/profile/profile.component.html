@@ -10,15 +10,19 @@
         <!-- Profile Details -->
         <div class="mb-2">
           <label for="employeeId" class="form-label">Employee ID</label>
-          <input type="text" class="form-control" id="employeeId" value="1" readonly />
+          <input type="text" class="form-control" id="employeeId" value={{profileData.id}} readonly />
         </div>
         <div class="mb-2">
-          <label for="fullName" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="fullName" value = {{profileData.name}} readonly />
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" value = {{profileData.f_name}} readonly />
+        </div>
+        <div class="mb-2">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" value = {{profileData.l_name}} readonly />
         </div>
         <div class="mb-2">
           <label for="dob" class="form-label">Date of Birth</label>
-          <input type="text" class="form-control" id="dob" value={{profileData.dob}} readonly />
+          <input type="text" class="form-control" id="dob" value={{profileData.date_of_birth}} readonly />
         </div>
         <div class="mb-2">
           <label for="email" class="form-label">Email</label>
@@ -27,6 +31,14 @@
         <div class="mb-2">
           <label for="phone" class="form-label">Phone Number</label>
           <input type="text" class="form-control" id="phone" value = {{profileData.phone}} readonly />
+        </div>
+        <div class="mb-2">
+          <label for="role" class="form-label">Role</label>
+          <input type="text" class="form-control" id="role" value = {{profileData.role}} readonly />
+        </div>
+        <div class="mb-2">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" value = {{profileData.address}} readonly />
         </div>
       </div>
     </div>

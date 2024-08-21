@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,24 +10,30 @@ import { ProfileService } from '../../services/profile.service';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+
   profileData = {
-    name : "dummy",
-    dob : "15/5/2002",
-    email : "dummy@dumb.com",
-    phone : "911"
+    id: "",
+    f_name: "",
+    l_name: "",
+    date_of_birth: "",
+    email: "",
+    phone: "",
+    role: "",
+    address: "",
   };
 
-  constructor(private profileService : ProfileService) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.fetchProfileData("152");
+    this.fetchProfileData(localStorage.getItem('userId') || "");
   }
 
   fetchProfileData(id : String){
-    this.profileService.getProfileData(id).subscribe(
+    this.employeeService.getEmployee(id).subscribe(
       (res) => {
         console.log(res);
-        this.profileData = res[0];  //@ SHIVAM TODO I ASSUMED [0]
+        // this.profileData = res[0];  //@ SHIVAM TODO I ASSUMED [0]
+        this.profileData = res;
       },
       (err) => {
         console.log();

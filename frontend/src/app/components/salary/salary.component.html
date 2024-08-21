@@ -34,7 +34,7 @@
       </div>
       <div class="col-md-4">
         <div class="card text-center p-3 bg-light">
-          <h2 class="h5 mb-0"> {{salaryComponent.allowances}} </h2>
+          <h2 class="h5 mb-0"> {{salaryComponent.allowance}} </h2>
           <p class="text-muted mb-0">Allowances</p>
         </div>
       </div>
@@ -47,8 +47,8 @@
         <thead>
           <tr>
             <th scope="col">Employee ID</th>
-            <th scope="col">Name</th>
             <th scope="col">Month</th>
+            <th scope="col">Year</th>
             <th scope="col">Salary</th>
             <th scope="col" class="text-center">Download</th>
           </tr>
@@ -58,8 +58,8 @@
             <td>
               {{salary.employeeId}}
             </td>
-            <td>{{salary.name}}</td>
             <td>{{salary.month}}</td>
+            <td>{{salary.year}}</td>
             <td>{{salary.salary}}</td>
             <td class="text-center">
               <i type="submit" class="fa-solid fa-circle-down text-primary"></i>

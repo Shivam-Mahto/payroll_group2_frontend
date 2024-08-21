@@ -1,16 +1,8 @@
 <div class="col-md-8">
-    <form [formGroup]="leaveApplication" >
+    <form [formGroup]="leaveApplication" (ngSubmit)="applyLeave()" >
         <div class="d-flex align-items-center mb-4">
             <i type="submit" (click)="navigateBack()" class="fa fa-arrow-left fa-xl mr-4" aria-hidden="true"></i>
             <h3>Leave Application</h3>
-        </div>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input formControlName="name" type="text" class="form-control" id="name" readonly>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input formControlName="email" type="text" class="form-control" id="email" readonly>
         </div>
         <div class="form-group">
             <label for="employeeId">Employee Id</label>
@@ -25,8 +17,11 @@
             <input formControlName="endDate" type="date" class="form-control" id="endDate">
         </div>
         <div class="form-group">
-            <label for="startDate">Reason</label>
-            <textarea formControlName="reason" class="form-control" id="reason"></textarea>
+            <label for="leaveType">Type</label>
+            <select formControlName="leaveType" class="custom-select" id="leaveType">
+                <option selected>Choose...</option>
+                <option value="Sick">Sick</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

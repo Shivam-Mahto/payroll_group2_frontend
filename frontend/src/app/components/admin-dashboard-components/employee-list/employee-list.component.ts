@@ -13,63 +13,39 @@ import { EmployeeService } from '../../../services/employee.service';
 })
 export class EmployeeListComponent {
 
-  // employeeList : any[] = []
-
-  employeeList = [
-    {
-      empId: 1,
-      name: "chip",
-      role: "Employee",
-      email: "jeremy@gmail.com"
-    },
-    {
-      empId: 2,
-      name: "tapak",
-      role: "Employee",
-      email: "shivam@gmail.com"
-    },
-    {
-      empId: 3,
-      name: "dum",
-      role: "Accountant",
-      email: "jack@gmail.com"
-    },
-    {
-      empId: 4,
-      name: "dum",
-      role: "Employee",
-      email: "jeremy@gmail.com"
-    },
-  ]
-
+  employeeList : any[] = [];
   searchTerm: string = "";
   filteredEmployeeList = this.employeeList;
 
   constructor(private employeeService : EmployeeService) {}
 
   ngOnInit() {
-    this.fetchEmployeeList("id");
-    this.filteredEmployeeList = this.employeeList;
+    this.fetchEmployeeList();
   }
 
-  searchLeaveRequests() {
+  filterEmployeeList() {
     
     // console.log("called searchLeaveRequest: ", text);
+
+    console.log(this.fetchEmployeeList);
 
     if (this.searchTerm == "")
       this.filteredEmployeeList = this.employeeList;
     else {
-      this.filteredEmployeeList = this.employeeList.filter(employee =>
-        employee.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      this.filteredEmployeeList = this.employeeList.filter(employee => {
+        const temp = employee.f_name + employee.l_name;
+        return temp.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+      }
       );
     }
   }
 
-  fetchEmployeeList(id : String) {
-    this.employeeService.getEmployeeList("id").subscribe(
+  fetchEmployeeList() {
+    this.employeeService.getEmployeeList().subscribe(
       (res) => {
         console.log(res);
         this.employeeList = res;
+        this.filteredEmployeeList = res;
       },
       (err) => {
         console.log(err);

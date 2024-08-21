@@ -17,6 +17,8 @@ import { DashboardWelcomeComponent } from './components/dashboard-welcome/dashbo
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ForgotPasswordTokenComponent } from './pages/forgot-password-token/forgot-password-token.component';
+import { UpdateSalaryComponent } from './components/admin-dashboard-components/update-salary/update-salary.component';
+import { UpdateEmployeeComponent } from './components/admin-dashboard-components/update-employee/update-employee.component';
 // import { LeaveComponent } from './components/leave/leave.component';
 
 export const routes: Routes = [
@@ -51,6 +53,10 @@ export const routes: Routes = [
                 path: 'employee-list', component: EmployeeListComponent
             }, {
                 path: 'employee-list/add-employee', component: NewEmployeeComponent
+            }, {
+                path: 'employee-list/update-salary/:id', component: UpdateSalaryComponent
+            }, {
+                path: 'employee-list/update-employee/:id', component: UpdateEmployeeComponent
             }, {
                 path: 'leaves', component: LeaveComponent
             }, {

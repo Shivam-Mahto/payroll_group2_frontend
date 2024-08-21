@@ -41,8 +41,8 @@
                     <td> {{request.endDate}} </td>
                     <td> {{request.leaveType}} </td>
                     <td>
-                        <div class="btn border bg-success text-white mr-2">Accept</div>
-                        <div class="btn border bg-danger text-white">Reject</div>
+                        <div (click)="acceptRequest(request.id)" class="btn border bg-success text-white mr-2">Accept</div>
+                        <div (click)="rejectRequest(request.id)" class="btn border bg-danger text-white">Reject</div>
                     </td>
                 </tr>
             </tbody>

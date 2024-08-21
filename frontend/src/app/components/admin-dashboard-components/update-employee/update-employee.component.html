@@ -1,8 +1,8 @@
 <div class="col-md-8">
-    <form [formGroup]="newEmployeeForm" (ngSubmit)="createEmployee()">
+    <form [formGroup]="employeeForm">
         <div class="d-flex align-items-center mb-4">
             <i type="submit" (click)="navigateBack()" class="fa fa-arrow-left fa-xl mr-4" aria-hidden="true"></i>
-            <h3>Add Employee</h3>
+            <h3>Update Employee</h3>
         </div>
         <div class="form-group">
             <label for="firstName">First Name</label>
@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="username">Email</label>
-            <input formControlName="username" type="text" class="form-control" id="username">
+            <input formControlName="username" type="text" class="form-control" id="username" readonly>
         </div>
         <div class="form-group">
             <label for="roleName">Role</label>
@@ -25,7 +25,7 @@
                 <option value="accountant">Accountant</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button (click)="updateEmployee()" type="submit" class="btn btn-primary">Update</button>
     </form>
     <!-- {{newEmployeeForm.value | json}} -->
 </div>
