@@ -2,11 +2,12 @@ import { CommonModule, formatCurrency } from '@angular/common';
 import { Component } from '@angular/core';
 import { SalaryService } from '../../../services/salary.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-generate-payslip',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './generate-payslip.component.html',
   styleUrl: './generate-payslip.component.css'
 })

@@ -8,26 +8,28 @@ import { HttpService } from './http.service';
 })
 export class LeavesService {
 
+  leaveUrl = "http://localhost:8282/api/v1";
+
   constructor(private httpService: HttpService) { }
 
   create(data: Object) : Observable<any> {
-    return this.httpService.post<any>('leaves/take', data);
+    return this.httpService.post<any>(`${this.leaveUrl}/leaves/take`, data);
   }
 
   accept(id : String) : Observable<any> {
-    return this.httpService.patch<any>(`leaves/status/approve/${id}`, {});
+    return this.httpService.patch<any>(`${this.leaveUrl}/leaves/status/approve/${id}`, {});
   }
 
   reject(id: String) : Observable<any> {
-    return this.httpService.patch<any>(`leaves/status/reject/${id}`, {});
+    return this.httpService.patch<any>(`${this.leaveUrl}/leaves/status/reject/${id}`, {});
   }
 
   getAllLeaves(id: String) : Observable<any[]> {
-    return this.httpService.get<any[]>(`leaves/${id}`);
+    return this.httpService.get<any[]>(`${this.leaveUrl}/leaves/${id}`);
   }
 
   getAllPendingRequests() : Observable<any[]> {
-    return this.httpService.get<any[]>(`leaves/fetchAllPending`,);
+    return this.httpService.get<any[]>(`${this.leaveUrl}/leaves/fetchAllPending`,);
   }
 
 }

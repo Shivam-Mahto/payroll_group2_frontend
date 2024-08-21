@@ -7,28 +7,28 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private baseUrl = "http://localhost:8282/api/v1";
+  private baseUrl = "";
   private options = {};
 
   constructor(private http: HttpClient) { }
 
   get<T>(url: String, params? : HttpParams): Observable<T> {
-    return this.http.get<T>(`${this.baseUrl}/${url}`, this.options);
+    return this.http.get<T>(`${url}`, this.options);
   }
 
   post<T>(url: String, body: any): Observable<T> {
-    return this.http.post<T>(`${this.baseUrl}/${url}`, body, this.options);
+    return this.http.post<T>(`${url}`, body, this.options);
   }
 
   patch<T>(url: String, body: any) : Observable<T> {
-    return this.http.patch<T>(`${this.baseUrl}/${url}`, body, this.options);
+    return this.http.patch<T>(`${url}`, body, this.options);
   }
 
   put<T>(url: String, body: any) : Observable<T> {
-    return this.http.put<T>(`${this.baseUrl}/${url}`, body, this.options);
+    return this.http.put<T>(`${url}`, body, this.options);
   }
 
   delete<T>(url: String, body: any) : Observable<T> {
-    return this.http.delete<T>(`${this.baseUrl}/${url}`,this.options);
+    return this.http.delete<T>(`${url}`,this.options);
   }
 }

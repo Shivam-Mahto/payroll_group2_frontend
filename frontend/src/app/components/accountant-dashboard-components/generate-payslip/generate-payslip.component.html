@@ -79,7 +79,7 @@
                         <td>{{salary.year}}</td>
                         <td>{{salary.salary}}</td>
                         <td>
-                            <i type="submit" class="fa-solid fa-circle-down"></i>
+                            <i [routerLink]="['/generatepdf', salary.id]" type="submit" class="fa-solid fa-circle-down text-primary"></i>
                         </td>
                     </tr>
                 </tbody>

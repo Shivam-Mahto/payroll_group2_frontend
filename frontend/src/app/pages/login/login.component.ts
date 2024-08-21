@@ -28,7 +28,9 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.signInForm.value).subscribe((res) => {
+
       console.log(res);
+      
       localStorage.setItem('token', res.jwt);
       localStorage.setItem('userId', res.userId);
       localStorage.setItem('username', this.signInForm.value.username || "");

@@ -1,0 +1,77 @@
+<div id="print-section">
+    <style>
+        @media print {
+            .table-light th {
+                background-color: #00bfae !important; 
+                color: white !important; 
+            }
+
+            .total-salary {
+                background-color: #00bfae;
+                color: white;
+                font-weight: bold;
+            }
+
+        }
+    </style>
+
+
+    <div class="container mt-4" style="max-width: 800px;">
+        <div class="card text-center border-0 shadow-lg" style="border-radius: 15px;">
+            <div class="card-header text-white" style="background-color: #00bfae;">
+                <h2>Paywise</h2>
+                <p class="mb-0">Employee Payslip</p>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3 justify-content-center text-center">
+                    <div class="col-12">
+                        <h5>Employee ID: {{userDetails.id}}</h5>
+                        <h5>Employee Name: {{userDetails.f_name}} {{userDetails.l_name}}</h5>
+                        <h5>Designation: Software Engineer</h5>
+                        <h5>Company Address: Paywise Noida</h5>
+                        <h5>Month: {{salaryPerMonthDetails.month}}</h5>
+                    </div>
+                </div>
+                <table class="table table-bordered mt-4">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="background-color: #00bfae; color: white;">Field</th>
+                            <th style="background-color: #00bfae; color: white;">Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic</td>
+                            <td>{{salaryDetails.basic}}</td>
+                        </tr>
+                        <tr>
+                            <td>HRA</td>
+                            <td>{{salaryDetails.hra}}</td>
+                        </tr>
+                        <tr>
+                            <td>Allowance</td>
+                            <td>{{salaryDetails.allowance}}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>Leave Deduction</td>
+                            <td>5,000</td>
+                        </tr> -->
+                        <tr class="fw-bold">
+                            <td style="background-color: #00bfae; color: white;">Total net salary of this month</td>
+                            <td style="background-color: #00bfae; color: white;">{{salaryPerMonthDetails.salary}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-auto">
+        <button class="btn btn-lg text-white" style="background-color: #00bfae; border-radius: 5px;"
+            printTitle="Payslip - Rajnandini Tiwari" printSectionId="print-section" [useExistingCss]="true" ngxPrint>
+            Print Payslip
+        </button>
+    </div>
+</div>
