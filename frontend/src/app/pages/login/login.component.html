@@ -1,20 +1,32 @@
-<div class="d-flex d-flex flex-column justify-content-center align-items-center vh-100 vw-100" style = "background-color: grey;">
-   
-    <form [formGroup]="signInForm" class="w-30 p-4 rounded box-shadow" style="background-color: white;">
-        <h4 class="mb-5 text-center font-weight-bold">Sign in to your account</h4>
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+<div class="container-fluid vh-100">
+    <div class="row h-100">
+      <!-- Left Side: Image -->
+      <div class="col-md-8 d-none d-md-block p-0 bg-white">
+        <!-- <div class="h-100 w-100" style="background-image: url('loginpage.png'); background-size: cover; background-position: center;"> -->
+            <div class="h-100 w-100" style="background-image: url('loginpage.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+        <!-- </div> -->
+      </div>
+  
+      <!-- Right Side: Form -->
+      <div class="col-md-4 d-flex flex-column justify-content-center align-items-center bg-light">
+        <div class="bg-white p-4 rounded shadow-lg" style="max-width: 380px; width: 100%;">
+          <h4 class="mb-4 text-center font-weight-bold">Sign in to your PayWise account</h4>
+          <form [formGroup]="signInForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input formControlName="password" type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #007791; border-color: #007791;">Sign in</button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="#" class="text-primary">Forgot password?</a>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input formControlName="password" type="password" class="form-control" id="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Sign in</button>
-    </form>
-   
-    <div>
-        <!-- {{signInForm.value | json}} -->
-         {{signInForm.errors}}
+      </div>
     </div>
-</div>
+  </div>
+  
